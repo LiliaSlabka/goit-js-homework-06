@@ -9,9 +9,12 @@ const ingredients = [
 
 const ulEl = document.getElementById('ingredients')
 
-for (const ingredient of ingredients) {
-  const liEl = document.createElement('li')
-  liEl.textContent = ingredient
-  liEl.classList = 'item'
-  ulEl.appendChild(liEl)
-}
+const markup = ingredients
+  .map(ingredient => {
+  const listItem = document.createElement('li');
+  listItem.classList.add('nav-link');
+  listItem.textContent = ingredient;
+  return listItem
+})
+
+  ulEl.append(...markup) 
